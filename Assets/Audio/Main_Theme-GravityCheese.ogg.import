@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Main_Theme-GravityCheese.ogg-8bdc7952a9832ca04a71f966a8fc1b2b.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Main_Theme-GravityCheese.ogg"
+dest_files=[ "res://.import/Main_Theme-GravityCheese.ogg-8bdc7952a9832ca04a71f966a8fc1b2b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

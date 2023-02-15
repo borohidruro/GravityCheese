@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Font/fira_mono_medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/EndGame.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.171387, 0.154887, 0.0938391, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 4
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.601562, 0.54657, 0.343096, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 4
+
+[node name="EndGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 250
+custom_constants/margin_top = 150
+custom_constants/margin_left = 250
+custom_constants/margin_bottom = 150
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+margin_left = 250.0
+margin_top = 150.0
+margin_right = 774.0
+margin_bottom = 450.0
+size_flags_horizontal = 5
+custom_styles/panel = SubResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 250.0
+margin_top = 150.0
+margin_right = 774.0
+margin_bottom = 450.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 524.0
+margin_bottom = 98.0
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+
+[node name="EndResultLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+margin_left = 5.0
+margin_top = 33.0
+margin_right = 519.0
+margin_bottom = 70.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+text = "End Game Message"
+align = 1
+autowrap = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 524.0
+margin_bottom = 300.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 30
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 30
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_left = 50.0
+margin_top = 30.0
+margin_right = 474.0
+margin_bottom = 168.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -180.0
+margin_top = -51.0
+margin_right = 180.0
+margin_bottom = 51.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Panel/CenterContainer"]
+margin_left = 21.0
+margin_right = 339.0
+margin_bottom = 113.0
+size_flags_horizontal = 5
+custom_constants/separation = 15
+
+[node name="PlayAgain" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Panel/CenterContainer/VBoxContainer"]
+margin_right = 318.0
+margin_bottom = 49.0
+size_flags_vertical = 2
+text = "Play Again"
+
+[node name="TitleScreen" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Panel/CenterContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 318.0
+margin_bottom = 113.0
+size_flags_vertical = 2
+text = "Back to Title"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Panel/CenterContainer/VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Panel/CenterContainer/VBoxContainer/TitleScreen" to="." method="_on_TitleScreen_pressed"]

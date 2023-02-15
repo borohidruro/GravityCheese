@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bell-GravityCheese.ogg-801864d3018b5d986814b5083d22742e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Bell-GravityCheese.ogg"
+dest_files=[ "res://.import/Bell-GravityCheese.ogg-801864d3018b5d986814b5083d22742e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

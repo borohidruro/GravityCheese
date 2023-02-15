@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MainTitle.gd" type="Script" id=1]
+[ext_resource path="res://Assets/GameTitle-500x281.png" type="Texture" id=2]
+[ext_resource path="res://Assets/LadyMouseMainTitle-500x.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.105882, 0.0901961, 0.0117647, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.148438, 0.121567, 0.025398, 1 )
+
+[node name="MainTitle" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 30
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 30
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 1004.0
+margin_bottom = 570.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 1004.0
+margin_bottom = 570.0
+custom_constants/separation = -40
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+margin_left = 58.0
+margin_right = 396.0
+margin_bottom = 540.0
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 1.2
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 415.0
+margin_right = 984.0
+margin_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+custom_constants/separation = 50
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 569.0
+margin_bottom = 294.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+custom_styles/panel = SubResource( 2 )
+
+[node name="Title" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -147.0
+margin_right = 250.0
+margin_bottom = 147.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.5
+texture = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 344.0
+margin_right = 569.0
+margin_bottom = 540.0
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+margin_left = 100.0
+margin_right = 469.0
+margin_bottom = 196.0
+custom_constants/separation = 15
+
+[node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_right = 369.0
+margin_bottom = 49.0
+text = "Start Game"
+
+[node name="About" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 369.0
+margin_bottom = 113.0
+text = "About"
+
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+margin_top = 128.0
+margin_right = 369.0
+margin_bottom = 177.0
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

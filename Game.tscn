@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Stage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Systems/GravitySystem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game.gd" type="Script" id=4]
+[ext_resource path="res://Items/Cheese.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Audio/Main_Theme-GravityCheese.ogg" type="AudioStream" id=6]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Systems/CheeseManager.tscn" type="PackedScene" id=8]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 4 )
+max_velocity_before_damage = 600
+
+[node name="Stage" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 155, 436 )
+
+[node name="GravitySystem" parent="." instance=ExtResource( 3 )]
+
+[node name="CheeseManager" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, -1 )
+
+[node name="Cheese" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 480, 417 )
+rotation = 1.5708
+
+[node name="Cheese7" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 808, 153 )
+
+[node name="Cheese6" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 361, 290 )
+
+[node name="Cheese2" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 576, 353 )
+rotation = 3.14159
+
+[node name="Cheese3" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 800, 353 )
+rotation = 3.14159
+
+[node name="Cheese4" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 160, 161 )
+
+[node name="Cheese5" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 484, 199 )
+
+[node name="Cheese8" parent="CheeseManager" instance=ExtResource( 5 )]
+position = Vector2( 617, 157 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -6.0
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = -330.0
+margin_top = 11.0
+margin_right = -330.0
+margin_bottom = 11.0
+
+[connection signal="damage_received" from="Player" to="." method="_on_Player_damage_received"]
+[connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]
+[connection signal="gravity_direction_changed" from="GravitySystem" to="." method="_on_GravitySystem_gravity_direction_changed"]
+[connection signal="player_won" from="CheeseManager" to="." method="_on_CheeseManager_player_won"]
